@@ -1,0 +1,12 @@
+{
+  "ids": {
+    "note": 5
+  },
+  "models": {
+    "note": {
+      "1": "{\"title\":\"first note\",\"content\":\"hello world\",\"id\":1,\"isDone\":true}",
+      "3": "{\"title\":\"second note\",\"content\":\"trying to store something\",\"id\":3}",
+      "4": "{\"title\":\"third note\",\"content\":\"trying to store more thing\",\"id\":4}"
+    }
+  }
+}
