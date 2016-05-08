@@ -18,6 +18,29 @@
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Tab One</h1>
 
+							<div ng-controller="dynamicFormController">
+								<table>
+									<tr ng-repeat="form in forms">
+										<td><md-input-container class="md-block">
+											<label>Title</label>
+											<input type='text' ng-model="form.title">
+										</md-input-container></td>
+										<td><md-input-container class="md-block">
+											<label>Content</label>
+											<input type='text' ng-model="form.content">
+										</md-input-container></td>
+										<td><button class="btn btn-danger btn-xs" ng-click="delete($index)">DELETE</button></td>
+									</tr>
+								</table>
+								
+								<button class="btn btn-primary btn-md" ng-click="addNew()">Add</button>
+							</div>
+
+						</md-content>
+					</md-tab>
+					<md-tab label="two">
+						<md-content class="md-padding">
+							<h1 class="md-display-2">Tab Two</h1>
 							<div class="container" ng-controller="noteController">
 								<div class="row">
 									<div class="col-md-4">
@@ -47,13 +70,6 @@
 									</div>
 								</div>
 							</div>
-
-						</md-content>
-					</md-tab>
-					<md-tab label="two">
-						<md-content class="md-padding">
-							<h1 class="md-display-2">Tab Two</h1>
-							<p>This is Tab Two!</p>
 						</md-content>
 					</md-tab>
 					<md-tab label="three">

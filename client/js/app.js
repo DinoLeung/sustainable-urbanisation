@@ -35,3 +35,22 @@ tapApp.controller('noteController', function($scope, $http, Note) {
 	};
 	
 });
+
+tapApp.controller('dynamicFormController', function($scope) {
+
+  $scope.forms = [{
+    title: '',
+    content: ''
+  }];
+  $scope.addNew = function() {
+
+    $scope.forms.push({
+      title: '',
+      content: ''
+    })
+  }
+  $scope.delete = function($index){
+    $scope.forms.splice($index, 1);
+  }
+
+});
