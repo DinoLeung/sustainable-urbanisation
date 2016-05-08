@@ -1,6 +1,8 @@
-var app = angular.module('noteApp', ['lbServices']);
+var tapApp = angular.module('TabApp',['ngMaterial']);
+
+var noteApp = angular.module('NoteApp', ['lbServices']);
  
-app.controller('noteController', function($scope, $http, Note) {
+noteApp.controller('noteController', function($scope, $http, Note) {
  
  	$scope.notes = Note.find();
  	$scope.note;
