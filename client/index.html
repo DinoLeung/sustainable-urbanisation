@@ -11,38 +11,36 @@
 	</head>
 
 	<body>
-		<div ng-cloak="" class="tabsdemoDynamicHeight" ng-app="TabApp">
+		<div ng-app="TabApp" class="tabsdemoDynamicHeight">
 			<md-content>
 				<md-tabs md-dynamic-height="" md-border-bottom="">
 					<md-tab label="one">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Tab One</h1>
-							<p>
-								<div ng-app = "NoteApp">
-									<div class="container" ng-controller="noteController">
-										<div class="row">
-											<div class="col-md-4">
-												<table class="table table-striped">
-													<tr ng-repeat='note in notes'>
-														<td>{{ note.title}}</td>
-														<td>{{ note.content}}</td>
-														<td><button class="btn btn-danger btn-xs" ng-click="delete($index)">  <span class="glyphicon glyphicon-trash" ></span></button></td>
-													</tr>
-												</table>
-											</div>
-										</div>
 
-										<div class="row">
-											<div class="col-md-4">
-												<input type='text' ng-model="note.title">
-												<input type='text' ng-model="note.content">
-												<button class="btn btn-primary btn-md"  ng-click="add()">Add</button>
-												<i ng-show="loading" class="fa fa-spinner fa-spin"></i>
-											</div>
-										</div>
+							<div class="container" ng-controller="noteController">
+								<div class="row">
+									<div class="col-md-4">
+										<table class="table table-striped">
+											<tr ng-repeat='note in notes'>
+												<td>{{ note.title}}</td>
+												<td>{{ note.content}}</td>
+												<td><button class="btn btn-danger btn-xs" ng-click="delete($index)">  <span class="glyphicon glyphicon-trash" ></span></button></td>
+											</tr>
+										</table>
 									</div>
 								</div>
-							</p>
+
+								<div class="row">
+									<div class="col-md-4">
+										<input type='text' ng-model="note.title">
+										<input type='text' ng-model="note.content">
+										<button class="btn btn-primary btn-md"  ng-click="add()">Add</button>
+										<i ng-show="loading" class="fa fa-spinner fa-spin"></i>
+									</div>
+								</div>
+							</div>
+
 						</md-content>
 					</md-tab>
 					<md-tab label="two">
