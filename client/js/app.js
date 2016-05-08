@@ -1,6 +1,4 @@
 var tapApp = angular.module('TabApp',['ngMaterial', 'ngMessages', 'lbServices']);
-
-// var noteApp = angular.module('NoteApp', ['lbServices']);
  
 tapApp.controller('noteController', function($scope, $http, Note) {
  
@@ -37,8 +35,3 @@ tapApp.controller('noteController', function($scope, $http, Note) {
 	};
 	
 });
-
-// angular.element(document).ready(function() {
-//   angular.bootstrap(document.getElementById("massiveTabs"), ['TabApp']);
-//   angular.bootstrap(document.getElementById("listOfNotes"), ['NoteApp']);
-// });

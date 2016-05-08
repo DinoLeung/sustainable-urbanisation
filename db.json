@@ -1,13 +1,12 @@
 {
   "ids": {
-    "note": 6
+    "note": 10
   },
   "models": {
     "note": {
       "1": "{\"title\":\"first note\",\"content\":\"hello world\",\"id\":1,\"isDone\":true}",
-      "3": "{\"title\":\"second note\",\"content\":\"trying to store something\",\"id\":3}",
-      "4": "{\"title\":\"third note\",\"content\":\"trying to store more thing\",\"id\":4}",
-      "5": "{\"title\":\"fourth note\",\"content\":\"trying to store some more thing\",\"id\":5}"
+      "7": "{\"title\":\"second note\",\"content\":\"use your force luke\",\"id\":7}",
+      "8": "{\"title\":\"third note\",\"content\":\"the force is strong with him\",\"id\":8}"
     }
   }
 }

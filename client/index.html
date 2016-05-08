@@ -11,7 +11,7 @@
 	</head>
 
 	<body>
-		<div ng-app="TabApp" class="tabsdemoDynamicHeight">
+		<div ng-app="TabApp" class="tabsdemoDynamicHeight" ng-cloak>
 			<md-content>
 				<md-tabs md-dynamic-height="" md-border-bottom="">
 					<md-tab label="one">
@@ -25,7 +25,8 @@
 											<tr ng-repeat='note in notes'>
 												<td>{{ note.title}}</td>
 												<td>{{ note.content}}</td>
-												<td><button class="btn btn-danger btn-xs" ng-click="delete($index)">  <span class="glyphicon glyphicon-trash" ></span></button></td>
+												<!-- <td><button class="btn btn-danger btn-xs" ng-click="delete($index)">  <span class="glyphicon glyphicon-trash" ></span></button></td> -->
+												<td><button class="btn btn-danger btn-xs" ng-click="delete($index)">DELETE</button></td>
 											</tr>
 										</table>
 									</div>
@@ -33,8 +34,14 @@
 
 								<div class="row">
 									<div class="col-md-4">
-										<input type='text' ng-model="note.title">
-										<input type='text' ng-model="note.content">
+										<md-input-container class="md-block">
+											<label>Title</label>
+											<input type='text' ng-model="note.title">
+										</md-input-container>
+										<md-input-container class="md-block">
+											<label>Content</label>
+											<input type='text' ng-model="note.content">
+										</md-input-container>
 										<button class="btn btn-primary btn-md"  ng-click="add()">Add</button>
 										<i ng-show="loading" class="fa fa-spinner fa-spin"></i>
 									</div>
