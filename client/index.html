@@ -14,6 +14,95 @@
 		<div ng-app="TabApp" class="tabsdemoDynamicHeight" ng-cloak>
 			<md-content>
 				<md-tabs md-dynamic-height="" md-border-bottom="">
+					<md-tab label="Summary">
+						<md-content class="md-padding">
+							<h1 class="md-display-2">Summary</h1>
+							<form name="projectForm">
+								<md-input-container class="md-block">
+									<label>Title of Practice</label>
+									<input type='text' required md-no-asterisk name="title" ng-model="summary.title">
+									<div ng-messages="projectForm.title.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>Year</label>
+									<input type='number' required md-no-asterisk name="year" ng-model="summary.year" min="0" max="2016">
+									<div ng-messages="projectForm.title.$error">
+										<div ng-message="required">This is required.</div>
+										<div ng-message="min">It should be after christ.</div>
+										<div ng-message="max">You must be Marty McFly.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>BPTags</label>
+									<input type='text' required md-no-asterisk name="tags" ng-model="summary.tags">
+									<div ng-messages="projectForm.tags.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>City/Town/Village</label>
+									<input type='text' required md-no-asterisk name="town" ng-model="summary.town">
+									<div ng-messages="projectForm.town.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>Region</label>
+									<input type='text' required md-no-asterisk name="region" ng-model="summary.region">
+									<div ng-messages="projectForm.region.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block"> <!--this is gonna be a autocomplete text box -->
+									<label>Country</label>
+									<input type='text' required md-no-asterisk name="country" ng-model="summary.country">
+									<div ng-messages="projectForm.region.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-switch ng-model="showHints">Has the practice been submitted previously?</md-switch>
+								<md-input-container class="md-block"> 
+									<label>Previous Title</label>
+									<input type='text' required md-no-asterisk name="pTitle" ng-model="summary.pTitle">
+									<div ng-messages="projectForm.pTitle.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block"> 
+									<label>Name of Contact Person</label>
+									<input type='text' required md-no-asterisk name="name" ng-model="summary.name">
+									<div ng-messages="projectForm.name.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>Client Email</label>
+									<input required type="email" name="clientEmail" ng-model="summary.clientEmail" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+									<div ng-messages="projectForm.clientEmail.$error" role="alert">
+										<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+											Your email must be between 10 and 100 characters long and look like an e-mail address.
+										</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block"> 
+									<label>Summary</label>
+									<input type='text' required md-no-asterisk name="summary" ng-model="summary.summary">
+									<div ng-messages="projectForm.summary.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block"> 
+									<label>Key Dates</label>
+									<input type='text' required md-no-asterisk name="date" ng-model="summary.date">
+									<div ng-messages="projectForm.date.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+							</form>
+						</md-content>
+					</md-tab>
 					<md-tab label="one">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Tab One</h1>
