@@ -1,4 +1,14 @@
 var tabApp = angular.module('TabApp',['ngMaterial', 'ngMessages', 'lbServices']);
+
+//only for the next button
+tabApp.controller('tabsController', function($scope, $log) {
+  $scope.max = 3;
+  $scope.selectedIndex = 0;
+  $scope.nextTab = function() {
+    var index = ($scope.selectedIndex == $scope.max) ? 0 : $scope.selectedIndex + 1;
+    $scope.selectedIndex = index;
+  };
+});
  
 tabApp.controller('noteController', function($scope, $http, Note) {
  
