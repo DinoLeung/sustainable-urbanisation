@@ -4,7 +4,7 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 		
 		<!-- My own style sheet -->
-		<link rel="stylesheet" herf="style.css">
+		<!-- <link rel="stylesheet" herf="/style.css"> -->
 
 		<!-- Angular Material requires Angular.js Libraries -->
 		<script src="lib/angular/angular.min.js"></script>
@@ -149,23 +149,19 @@
 					<md-tab label="Drag and Drop">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Drag bewteen two boxes</h1>
-							<div ng-controller='dragDropController'>
-								<ul class="thumbnails">
-									<li class="span3" style='margin-left:10px;'>
-										<div class="thumbnail" data-drop='true' ng-model='listA' jqyoui-droppable="{multiple:true}">
-											<div class="caption">
-												<div class="btn btn-info btn-draggable" ng-repeat="item in listA" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listA" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
-											</div>
-										</div>
-									</li>
-									<li class="span3" style='margin-left:10px;'>
-										<div class="thumbnail" data-drop='true' ng-model='listB' jqyoui-droppable="{multiple:true}">
-											<div class="caption">
-												<div class="btn btn-info btn-draggable" ng-repeat="item in listB" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listB" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
-											</div>
-										</div>
-									</li>
-								</ul>
+							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 70%; overflow: auto;">
+								
+								<div class="thumbnail" data-drop='true' ng-model='listA' jqyoui-droppable="{multiple:true}" style="width: 45%;">
+									<div class="caption">
+										<div class="btn btn-info btn-draggable" ng-repeat="item in listA" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listA" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+									</div>
+								</div>
+								<div class="thumbnail" data-drop='true' ng-model='listB' jqyoui-droppable="{multiple:true}" style="width: 45%;">
+									<div class="caption">
+										<div class="btn btn-info btn-draggable" ng-repeat="item in listB" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listB" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+									</div>
+								</div>
+
 							</div>
 						</md-content>
 					</md-tab>
