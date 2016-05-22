@@ -2,11 +2,12 @@ var tabApp = angular.module('TabApp',['ngMaterial', 'ngMessages', 'lbServices', 
 
 // next/prev button
 tabApp.controller('tabsController', function($scope, $log) {
-  $scope.max = 4;
+  $scope.max = 5;
   $scope.min = 0;
   $scope.selectedIndex = 0;
+  $scope.summary = {submitted: 'yes'};
   $scope.nextTab = function() {
-    var index = ($scope.selectedIndex == $scope.max) ? 0 : $scope.selectedIndex + 1;
+    var index = ($scope.selectedIndex == $scope.max) ? $scope.max : $scope.selectedIndex + 1;
     $scope.selectedIndex = index;
   };
   $scope.prevTab = function() {
