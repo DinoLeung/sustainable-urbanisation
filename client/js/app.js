@@ -1,11 +1,16 @@
 var tabApp = angular.module('TabApp',['ngMaterial', 'ngMessages', 'lbServices', 'ngDragDrop']);
 
-// next button
+// next/prev button
 tabApp.controller('tabsController', function($scope, $log) {
-  $scope.max = 3;
+  $scope.max = 4;
+  $scope.min = 0;
   $scope.selectedIndex = 0;
   $scope.nextTab = function() {
     var index = ($scope.selectedIndex == $scope.max) ? 0 : $scope.selectedIndex + 1;
+    $scope.selectedIndex = index;
+  };
+  $scope.prevTab = function() {
+    var index = ($scope.selectedIndex == $scope.min) ? 0 : $scope.selectedIndex - 1;
     $scope.selectedIndex = index;
   };
 });
