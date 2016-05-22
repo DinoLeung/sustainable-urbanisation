@@ -11,3 +11,22 @@
 .tabsdemoDynamicHeight md-content h1:first-child {
 	margin-top: 0;
 }
+.thumbnail { height: 280px !important; }
+.btn-droppable { width: 180px; height: 30px; padding-left: 4px; }
+.btn-draggable { width: 160px; }
+
+.DivParent {
+    height: 100px;
+    border: 1px solid lime;
+    white-space: nowrap;
+}
+.verticallyAlignedDiv {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+}
+.DivHelper {
+    display: inline-block;
+    vertical-align: middle;
+    height:100%;
+}

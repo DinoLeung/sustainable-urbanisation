@@ -1,6 +1,6 @@
-var tabApp = angular.module('TabApp',['ngMaterial', 'ngMessages', 'lbServices']);
+var tabApp = angular.module('TabApp',['ngMaterial', 'ngMessages', 'lbServices', 'ngDragDrop']);
 
-//only for the next button
+// next button
 tabApp.controller('tabsController', function($scope, $log) {
   $scope.max = 3;
   $scope.selectedIndex = 0;
@@ -9,62 +9,8 @@ tabApp.controller('tabsController', function($scope, $log) {
     $scope.selectedIndex = index;
   };
 });
- 
-tabApp.controller('noteController', function($scope, $http, Note) {
- 
- 	$scope.notes = Note.find();
- 	$scope.note;
- 	$scope.loading=false;
- 
-	$scope.add = function(){
-		$scope.loading=true;
-		
-		Note.create({title: $scope.note.title,content: $scope.note.content }).$promise
-			 .then(function(note) { 
-			 		$scope.notes.push(note);
-			 		$scope.note.title='';
-        $scope.note.content='';
-			 		$scope.loading=false;
-			  });;
-	};
- 
-	$scope.delete = function($index){
-		
-		$scope.loading=true;
-		var note = $scope.notes[$index];
-		
-		Note.deleteById({ id: note.id}).$promise
-		    .then(function() {
-			$scope.notes.splice($index,1);
-			$scope.loading=false;
-	     });
-	};
- 
-	$scope.update = function(note){
-		note.$save();
-	};
-	
-});
 
-tabApp.controller('dynamicFormController', function($scope) {
-
-  $scope.forms = [{
-    title: '',
-    content: ''
-  }];
-  $scope.addNew = function() {
-
-    $scope.forms.push({
-      title: '',
-      content: ''
-    })
-  }
-  $scope.delete = function($index){
-    $scope.forms.splice($index, 1);
-  }
-
-});
-
+// country auto complete 
 tabApp.controller('countryAutoComplete', function($timeout, $q, $log){
   var self = this;
   self.simulateQuery = false;
@@ -111,4 +57,68 @@ tabApp.controller('countryAutoComplete', function($timeout, $q, $log){
     };
   }
 });
+
+tabApp.controller('dragDropController', function($scope) {
+  $scope.listA = [{'title': 'item 1'}, {'title': 'item 2'}, {'title': 'item 3'}];
+  $scope.listB = [];
+});
+ 
+// connecting to the db, we may need this
+tabApp.controller('noteController', function($scope, $http, Note) {
+ 
+ 	$scope.notes = Note.find();
+ 	$scope.note;
+ 	$scope.loading=false;
+ 
+	$scope.add = function(){
+		$scope.loading=true;
+		
+		Note.create({title: $scope.note.title,content: $scope.note.content }).$promise
+			 .then(function(note) { 
+			 		$scope.notes.push(note);
+			 		$scope.note.title='';
+        $scope.note.content='';
+			 		$scope.loading=false;
+			  });;
+	};
+ 
+	$scope.delete = function($index){
+		
+		$scope.loading=true;
+		var note = $scope.notes[$index];
+		
+		Note.deleteById({ id: note.id}).$promise
+		    .then(function() {
+			$scope.notes.splice($index,1);
+			$scope.loading=false;
+	     });
+	};
+ 
+	$scope.update = function(note){
+		note.$save();
+	};
+	
+});
+
+// dynamic adding form, we may need this
+tabApp.controller('dynamicFormController', function($scope) {
+
+  $scope.forms = [{
+    title: '',
+    content: ''
+  }];
+  $scope.addNew = function() {
+
+    $scope.forms.push({
+      title: '',
+      content: ''
+    })
+  }
+  $scope.delete = function($index){
+    $scope.forms.splice($index, 1);
+  }
+
+});
+
+
 
