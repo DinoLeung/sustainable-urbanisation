@@ -100,7 +100,11 @@
 									</div>
 								</md-input-container>
 
-								<md-switch ng-model="showHints">Has the practice been submitted previously?</md-switch>
+								<p>Has the practice been submitted previously?</p>
+								<md-radio-group ng-model="summary.submitted">
+									<md-radio-button class="md-primary" value="yes"> Yes </md-radio-button>
+									<md-radio-button class="md-primary" value="no"> No </md-radio-button>
+								</md-radio-group>
 
 								<md-input-container class="md-block"> 
 									<label>Previous Title</label>
@@ -146,12 +150,45 @@
 						</md-content>
 					</md-tab>
 
+					<md-tab label="Narrative">
+						<md-content class="md-padding">
+							<h1 class="md-display-2">Narrative</h1>
+							<form name="projectForm">
+								<md-input-container class="md-block">
+									<label>Situation Before the Initiative Began</label>
+									<textarea type='text' required md-no-asterisk name="situationBefore" ng-model="narrative.situationBefore"></textarea>
+									<div ng-messages="projectForm.situationBefore.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>Establishment of Priorities</label>
+									<textarea type='text' required md-no-asterisk name="establishment" ng-model="narrative.establishment"></textarea>
+									<div ng-messages="projectForm.establishment.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>Formulation of Objectives and Strategies</label>
+									<textarea type='text' required md-no-asterisk name="formulation" ng-model="narrative.formulation"></textarea>
+									<div ng-messages="projectForm.formulation.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+							</form>
+
+							<md-button class="md-raised md-warn" ng-click="prevTab()">Previous</md-button>
+							<md-button class="md-raised md-primary" ng-click="nextTab()">Next</md-button>
+							
+						</md-content>
+					</md-tab>
+
 					<md-tab label="Areas of Action">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Areas of Action</h1>
-							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 70%; overflow: auto;">
+							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 60%; overflow: auto;">
 								<section layout="column" layout-align="space-between none" style="width: 45%;height: 100%">
-									<h2 class="md-display1">Relevant Areas of Action:</h2>
+									<h4 class="md-display1">Relevant Areas of Action:</h4>
 									<div class="thumbnail" data-drop='true' ng-model='listA' jqyoui-droppable="{multiple:true}" style="width: 100%;height: 80%">
 										<div class="caption">
 											<div class="btn btn-info btn-draggable" ng-repeat="item in listA" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listA" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
@@ -159,7 +196,7 @@
 									</div>
 								</section>
 								<section layout="column" layout-align="space-between none" style="width: 45%;height: 100%">
-									<h2 class="md-display1">Other Areas of Action:</h2>
+									<h4 class="md-display1">Other Areas of Action:</h4>
 									<div class="thumbnail" data-drop='true' ng-model='listB' jqyoui-droppable="{multiple:true}" style="width: 100%;height: 80%">
 										<div class="caption">
 											<div class="btn btn-info btn-draggable" ng-repeat="item in listB" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listB" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
@@ -167,14 +204,18 @@
 									</div>
 								</section>
 							</div>
+
+							<md-button class="md-raised md-warn" ng-click="prevTab()">Previous</md-button>
+							<md-button class="md-raised md-primary" ng-click="nextTab()">Next</md-button>
+
 						</md-content>
 					</md-tab>
 					<md-tab label="Methods">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Methods</h1>
-							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 70%; overflow: auto;">
+							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 60%; overflow: auto;">
 								<section layout="column" layout-align="space-between none" style="width: 45%;height: 100%">
-									<h2 class="md-display1">Relevant Methods:</h2>
+									<h4 class="md-display1">Relevant Methods:</h4>
 									<div class="thumbnail" data-drop='true' ng-model='listA' jqyoui-droppable="{multiple:true}" style="width: 100%;height: 80%">
 										<div class="caption">
 											<div class="btn btn-info btn-draggable" ng-repeat="item in listA" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listA" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
@@ -182,7 +223,7 @@
 									</div>
 								</section>
 								<section layout="column" layout-align="space-between none" style="width: 45%;height: 100%">
-									<h2 class="md-display1">Other Methods:</h2>
+									<h4 class="md-display1">Other Methods:</h4>
 									<div class="thumbnail" data-drop='true' ng-model='listB' jqyoui-droppable="{multiple:true}" style="width: 100%;height: 80%">
 										<div class="caption">
 											<div class="btn btn-info btn-draggable" ng-repeat="item in listB" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listB" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
@@ -190,14 +231,18 @@
 									</div>
 								</section>
 							</div>
+
+							<md-button class="md-raised md-warn" ng-click="prevTab()">Previous</md-button>
+							<md-button class="md-raised md-primary" ng-click="nextTab()">Next</md-button>
+							
 						</md-content>
 					</md-tab>
 					<md-tab label="Outcomes">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Outcomes</h1>
-							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 70%; overflow: auto;">
+							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 60%; overflow: auto;">
 								<section layout="column" layout-align="space-between none" style="width: 45%;height: 100%">
-									<h2 class="md-display1">Relevant Outcomes:</h2>
+									<h4 class="md-display1">Relevant Outcomes:</h4>
 									<div class="thumbnail" data-drop='true' ng-model='listA' jqyoui-droppable="{multiple:true}" style="width: 100%;height: 80%">
 										<div class="caption">
 											<div class="btn btn-info btn-draggable" ng-repeat="item in listA" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listA" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
@@ -205,7 +250,7 @@
 									</div>
 								</section>
 								<section layout="column" layout-align="space-between none" style="width: 45%;height: 100%">
-									<h2 class="md-display1">Other Outcomes:</h2>
+									<h4 class="md-display1">Other Outcomes:</h4>
 									<div class="thumbnail" data-drop='true' ng-model='listB' jqyoui-droppable="{multiple:true}" style="width: 100%;height: 80%">
 										<div class="caption">
 											<div class="btn btn-info btn-draggable" ng-repeat="item in listB" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listB" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
@@ -213,14 +258,18 @@
 									</div>
 								</section>
 							</div>
+
+							<md-button class="md-raised md-warn" ng-click="prevTab()">Previous</md-button>
+							<md-button class="md-raised md-primary" ng-click="nextTab()">Next</md-button>
+							
 						</md-content>
 					</md-tab>
 					<md-tab label="Indicators">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Indicators</h1>
-							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 70%; overflow: auto;">
+							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 60%; overflow: auto;">
 								<section layout="column" layout-align="space-between none" style="width: 45%;height: 100%">
-									<h2 class="md-display1">Relevant Indicators:</h2>
+									<h4 class="md-display1">Relevant Indicators:</h4>
 									<div class="thumbnail" data-drop='true' ng-model='listA' jqyoui-droppable="{multiple:true}" style="width: 100%;height: 80%">
 										<div class="caption">
 											<div class="btn btn-info btn-draggable" ng-repeat="item in listA" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listA" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
@@ -228,7 +277,7 @@
 									</div>
 								</section>
 								<section layout="column" layout-align="space-between none" style="width: 45%;height: 100%">
-									<h2 class="md-display1">Other Indicators:</h2>
+									<h4 class="md-display1">Other Indicators:</h4>
 									<div class="thumbnail" data-drop='true' ng-model='listB' jqyoui-droppable="{multiple:true}" style="width: 100%;height: 80%">
 										<div class="caption">
 											<div class="btn btn-info btn-draggable" ng-repeat="item in listB" ng-show="item.title" data-drag='true' data-jqyoui-options="{revert: 'invalid'}" ng-model="listB" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
@@ -236,13 +285,17 @@
 									</div>
 								</section>
 							</div>
+
+							<md-button class="md-raised md-warn" ng-click="prevTab()">Previous</md-button>
+							<md-button class="md-raised md-accent" ng-click="">Submit</md-button>
+							
 						</md-content>
 					</md-tab>
 
-					<md-tab label="Drag and Drop">
+					<!--<md-tab label="Drag and Drop">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Drag bewteen two boxes</h1>
-							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 70%; overflow: auto;">
+							<div ng-controller='dragDropController' layout="row" layout-align="space-around stretch" style="height: 60%; overflow: auto;">
 								
 								<div class="thumbnail" data-drop='true' ng-model='listA' jqyoui-droppable="{multiple:true}" style="width: 45%;">
 									<div class="caption">
@@ -293,7 +346,6 @@
 											<tr ng-repeat='note in notes'>
 												<td>{{ note.title}}</td>
 												<td>{{ note.content}}</td>
-												<!-- <td><button class="btn btn-danger btn-xs" ng-click="delete($index)">  <span class="glyphicon glyphicon-trash" ></span></button></td> -->
 												<td><button class="btn btn-danger btn-xs" ng-click="delete($index)">DELETE</button></td>
 											</tr>
 										</table>
@@ -317,7 +369,7 @@
 							</div>
 						</md-content>
 					</md-tab>
-				</md-tabs>
+				</md-tabs> -->
 			</md-content>
 		</div>
 	</body>
