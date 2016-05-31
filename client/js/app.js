@@ -1,11 +1,11 @@
 var tabApp = angular.module('TabApp',['ngMaterial', 'ngMessages', 'lbServices', 'ngDragDrop']);
 
-// next/prev button
+// next/prev/submit button
 tabApp.controller('tabsController', function($scope, $log) {
   $scope.max = 5;
   $scope.min = 0;
   $scope.selectedIndex = 0;
-  $scope.summary = {submitted: 'yes'};
+  $scope.summary = {submitted: 'no'};//all answers will possiablly store here
   $scope.nextTab = function() {
     var index = ($scope.selectedIndex == $scope.max) ? $scope.max : $scope.selectedIndex + 1;
     $scope.selectedIndex = index;
@@ -13,6 +13,9 @@ tabApp.controller('tabsController', function($scope, $log) {
   $scope.prevTab = function() {
     var index = ($scope.selectedIndex == $scope.min) ? 0 : $scope.selectedIndex - 1;
     $scope.selectedIndex = index;
+  };
+  $scope.submit = function() {
+    //sunmit all data from the form to server?
   };
 });
 

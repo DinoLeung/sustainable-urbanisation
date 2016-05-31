@@ -37,18 +37,18 @@
 					<md-tab label="Summary">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Summary</h1>
-							<form name="projectForm">
+							<form name="projectForm1">
 								<md-input-container class="md-block">
 									<label>Title of Practice</label>
 									<input type='text' required md-no-asterisk name="title" ng-model="summary.title">
-									<div ng-messages="projectForm.title.$error">
+									<div ng-messages="projectForm1.title.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
 								<md-input-container class="md-block">
 									<label>Year</label>
 									<input type='number' required md-no-asterisk name="year" ng-model="summary.year" min="0" max="2016">
-									<div ng-messages="projectForm.year.$error">
+									<div ng-messages="projectForm1.year.$error">
 										<div ng-message="required">This is required.</div>
 										<div ng-message="min">It should be after christ.</div>
 										<div ng-message="max">You must be Marty McFly.</div>
@@ -57,21 +57,21 @@
 								<md-input-container class="md-block">
 									<label>BPTags</label>
 									<input type='text' required md-no-asterisk name="tags" ng-model="summary.tags">
-									<div ng-messages="projectForm.tags.$error">
+									<div ng-messages="projectForm1.tags.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
 								<md-input-container class="md-block">
 									<label>City/Town/Village</label>
 									<input type='text' required md-no-asterisk name="town" ng-model="summary.town">
-									<div ng-messages="projectForm.town.$error">
+									<div ng-messages="projectForm1.town.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
 								<md-input-container class="md-block">
 									<label>Region</label>
 									<input type='text' required md-no-asterisk name="region" ng-model="summary.region">
-									<div ng-messages="projectForm.region.$error">
+									<div ng-messages="projectForm1.region.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
@@ -90,11 +90,11 @@
 											<md-item-template>
 												<span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
 											</md-item-template>
-											<div ng-messages="projectForm.country.$error" ng-if="projectForm.country.$touched">
+											<div ng-messages="projectForm1.country.$error" ng-if="projectForm1.country.$touched">
 												<div ng-message="required">This is required.</div>
 											</div>
 											<md-not-found>
-												No Ccountries matching "{{ctrl.searchText}}" were found.
+												No Countries matching "{{ctrl.searchText}}" were found.
 											</md-not-found>
 										</md-autocomplete>
 									</div>
@@ -106,24 +106,26 @@
 									<md-radio-button class="md-primary" value="no"> No </md-radio-button>
 								</md-radio-group>
 
-								<md-input-container class="md-block"> 
-									<label>Previous Title</label>
-									<input type='text' required md-no-asterisk name="pTitle" ng-model="summary.pTitle">
-									<div ng-messages="projectForm.pTitle.$error">
-										<div ng-message="required">This is required.</div>
-									</div>
-								</md-input-container>
+								<div ng-if="summary.submitted=='yes'">
+									<md-input-container class="md-block"> 
+										<label>Previous Title</label>
+										<input type='text' required md-no-asterisk name="pTitle" ng-model="summary.pTitle">
+										<div ng-messages="projectForm1.pTitle.$error">
+											<div ng-message="required">This is required.</div>
+										</div>
+									</md-input-container>
+								</div>
 								<md-input-container class="md-block"> 
 									<label>Name of Contact Person</label>
 									<input type='text' required md-no-asterisk name="name" ng-model="summary.name">
-									<div ng-messages="projectForm.name.$error">
+									<div ng-messages="projectForm1.name.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
 								<md-input-container class="md-block">
 									<label>Client Email</label>
 									<input required type="email" name="clientEmail" ng-model="summary.clientEmail" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-									<div ng-messages="projectForm.clientEmail.$error" role="alert">
+									<div ng-messages="projectForm1.clientEmail.$error" role="alert">
 										<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
 											Your email must be between 10 and 100 characters long and look like an e-mail address.
 										</div>
@@ -132,14 +134,14 @@
 								<md-input-container class="md-block"> 
 									<label>Summary</label>
 									<input type='text' required md-no-asterisk name="summary" ng-model="summary.summary">
-									<div ng-messages="projectForm.summary.$error">
+									<div ng-messages="projectForm1.summary.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
 								<md-input-container class="md-block"> 
 									<label>Key Dates</label>
 									<input type='text' required md-no-asterisk name="date" ng-model="summary.date">
-									<div ng-messages="projectForm.date.$error">
+									<div ng-messages="projectForm1.date.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
@@ -153,25 +155,25 @@
 					<md-tab label="Narrative">
 						<md-content class="md-padding">
 							<h1 class="md-display-2">Narrative</h1>
-							<form name="projectForm">
+							<form name="projectForm2">
 								<md-input-container class="md-block">
 									<label>Situation Before the Initiative Began</label>
 									<textarea type='text' required md-no-asterisk name="situationBefore" ng-model="narrative.situationBefore"></textarea>
-									<div ng-messages="projectForm.situationBefore.$error">
+									<div ng-messages="projectForm2.situationBefore.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
 								<md-input-container class="md-block">
 									<label>Establishment of Priorities</label>
 									<textarea type='text' required md-no-asterisk name="establishment" ng-model="narrative.establishment"></textarea>
-									<div ng-messages="projectForm.establishment.$error">
+									<div ng-messages="projectForm2.establishment.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
 								<md-input-container class="md-block">
 									<label>Formulation of Objectives and Strategies</label>
 									<textarea type='text' required md-no-asterisk name="formulation" ng-model="narrative.formulation"></textarea>
-									<div ng-messages="projectForm.formulation.$error">
+									<div ng-messages="projectForm2.formulation.$error">
 										<div ng-message="required">This is required.</div>
 									</div>
 								</md-input-container>
