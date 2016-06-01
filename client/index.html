@@ -47,10 +47,10 @@
 								</md-input-container>
 								<md-input-container class="md-block">
 									<label>Year</label>
-									<input type='number' required md-no-asterisk name="year" ng-model="summary.year" min="0" max="2016">
+									<input type='number' required md-no-asterisk name="year" ng-model="summary.year" min="1800" max="2016">
 									<div ng-messages="projectForm1.year.$error">
 										<div ng-message="required">This is required.</div>
-										<div ng-message="min">It should be after christ.</div>
+										<div ng-message="min">You must be Dr. Emmett.</div>
 										<div ng-message="max">You must be Marty McFly.</div>
 									</div>
 								</md-input-container>
