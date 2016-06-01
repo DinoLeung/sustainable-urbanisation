@@ -68,18 +68,68 @@ tabApp.controller('countryAutoComplete', function($timeout, $q, $log){
 });
 
 tabApp.controller('actionDropController', function($scope) {
-  $scope.listA = [{'title': 'item 1'}, {'title': 'item 2'}, {'title': 'item 3'}];
-  $scope.listB = [];
+  $scope.listA = [{'title': 'Architecture and Urban Design'}, {'title': 'Children and Youth'}, {'title': 'Civic Engagement and Cultural Vitality'}];
+  $scope.listB = [{'title': 'Disaster and Emergency'}, {'title': 'Economic Development'}, {'title': 'Environmental Management'},
+                  {'title': 'Gender Equality and Social Inclusion'}, {'title': 'Housing'}, {'title': 'Infrastructure, Communication, Transportation'},
+                  {'title': 'Land Use Management'}, {'title': 'Poverty Reduction'}, {'title': 'Production and Consumption Patterns'},
+                  {'title': 'Resilient Communities'}, {'title': 'Social Services'}, {'title': 'Technical and International Cooperation'},
+                  {'title': 'Technology, Tools and Methods'}, {'title': 'Urban and Regional Planning'}, {'title': 'Urban Governance'},
+                  {'title': 'Use of Information in Decision Making'}, {'title': 'Water and Sanitation'}, {'title': 'Buildings'},
+                  {'title': 'Energy'}, {'title': 'Renewables'}, {'title': 'Waste Management'}, {'title': 'Education'},
+                  {'title': 'Health'}, {'title': 'Saftely and Security'}, {'title': 'Tourism'}, {'title': 'Workforce Development'}, {'title': 'Climate Change'},];
 });
 
 tabApp.controller('methodDropController', function($scope) {
-  $scope.listA = [{'title': 'item 1'}, {'title': 'item 2'}, {'title': 'item 3'}];
-  $scope.listB = [];
+  $scope.listA = [{'title': 'Information and communication technologies'}, {'title': 'Mass information campaigns and promotion of rights'}, {'title': 'Creating and strengthening networking'}];
+  $scope.listB = [{'title': 'Institutional reform and strengthening'}, {'title': 'Capital formation and entrepreneurship'},
+                  {'title': 'Investment development'}, {'title': 'Job creation'}, {'title': 'Public policy'}, {'title': 'By-laws and standards'},
+                  {'title': 'Education'}, {'title': 'Monitoring, evaluation, and auditing'}, {'title': 'Provision of shelter/right to adequate housing'},
+                  {'title': 'Grants (economical support)'}, {'title': 'Justice system reform'}, {'title': 'Waste management and treatment'},
+                  {'title': 'Research and development'}, {'title': 'Urban greening'}, {'title': 'Incentives'}, {'title': 'Drainage and eco-sanitation'},
+                  {'title': 'Provision of social services by micro-enterprises'}, {'title': 'Public/Private/Community parterships'},
+                  {'title': 'Indicators and statistics'}, {'title': 'Urban/suburban renewal'}, {'title': 'Urban planning regulations'},
+                  {'title': 'Health care and welfare services'}, {'title': 'Foster care'}, {'title': 'Organic farms'}, {'title': 'Knowledge sharing'},
+                  {'title': 'Access to housing finance'}, {'title': 'Education loans/scholarships'}, {'title': 'Access to credit'},
+                  {'title': 'Water supply and demand management'}, {'title': 'Self-built homes construction'}, {'title': 'Prevention of forced eviction'},
+                  {'title': 'Environmentally sound technologies'}, {'title': 'Environmental government plans'}, {'title': 'Enforcement of protected areas'},
+                  {'title': 'Efficient resource management and conversation'}, {'title': 'Relocation of inhabitants living in slums'},
+                  {'title': 'Childrens participatory planning'}, {'title': 'Renewal/clean energy generation'}, {'title': 'Eco-reparation of land'},
+                  {'title': 'Energy use efficiency'}, {'title': 'Eco-tourism'}, {'title': 'Building civic awareness'}, {'title': 'Transportation and mobility'},
+                  {'title': 'Cultural heritage conservation'}, {'title': 'Exposure to best practices'}, {'title': 'Land use planning'},
+                  {'title': 'Community support programmes'}, {'title': 'Transperancy and accountability'}, {'title': 'Environmental programmes with a youth focus'},
+                  {'title': 'Abuse prevention of disadvantaged groups'}, {'title': 'Government decentralization'}, {'title': 'Removing barriers to equity'},
+                  {'title': 'Participatory budgeting and decision-making development'}, {'title': 'Legal counseling'},
+                  {'title': 'Urban management and administration'}, {'title': 'Sustainable agriculture practices'},
+                  {'title': 'Post-disaster rehabilitation/reconstruction'}, {'title': 'Master city plan'}, {'title': 'Regional planning'},
+                  {'title': 'Urban/Rural networking'}, {'title': 'Geographical information systems (GIS)'}, {'title': 'Risk management'},
+                  {'title': 'Climate change adaption'}, {'title': 'Climate change mitigation'}, {'title': 'Sustainable construction'},
+                  {'title': 'Fundraising'}, {'title': 'Women empowerment'}, {'title': 'Technology transfer'}, {'title': 'Vocational training and capacity building'},
+                  {'title': 'Community participation'}, {'title': 'Recreatioin and entertainment'}, {'title': 'Form of expression/animation'}, {'title': 'Sports'},];
 });
 
 tabApp.controller('outcomeDropController', function($scope) {
-  $scope.listA = [{'title': 'item 1'}, {'title': 'item 2'}, {'title': 'item 3'}];
-  $scope.listB = [];
+  $scope.listA = [{'title': 'Social inclusion of vulnerable groups'}, {'title': 'Crime reduction and prevention'}, {'title': 'Equal access to social services'}];
+  $scope.listB = [{'title': 'Equal access to health and welfare services'}, {'title': 'Social and cultural vitality'},
+                  {'title': 'Industrial and enterprise development'}, {'title': 'Income generation activities'},
+                  {'title': 'Food and nutrition security'}, {'title': 'Children found'}, {'title': 'Foster care'},
+                  {'title': 'Legislation changes'}, {'title': 'Institutional reform'}, {'title': 'Education quality improvement'},
+                  {'title': 'Reduction of desertion school rates'}, {'title': 'Less referrals of children to psychologist'},
+                  {'title': 'Equal access to jobs'}, {'title': 'Cultural development'}, {'title': 'Increased civic awareness and engagement'},
+                  {'title': 'Air pollution reduction'}, {'title': 'Technology transfer'}, {'title': 'City-to-city cooperation'},
+                  {'title': 'Knowledge transfer'}, {'title': 'Eco-tourism'}, {'title': 'Water supply and demand services'},
+                  {'title': 'Water use efficiency'}, {'title': 'Economic development'}, {'title': 'Provision of public space'},
+                  {'title': 'Improvement of living environment'}, {'title': 'Upgrading of informal settlements'},
+                  {'title': 'Poverty reduction'}, {'title': 'Security of tenure'}, {'title': 'Equal access to housing'},
+                  {'title': 'Adequate housing'}, {'title': 'Hygiene and sanitation'}, {'title': 'Climate change mitigation'},
+                  {'title': 'Climate change adaption'}, {'title': 'Renewable/clean energy generation'}, {'title': 'Work safety'},
+                  {'title': 'Energy use efficiency'}, {'title': 'Waste dumping reduction'}, {'title': 'Rural community development'},
+                  {'title': 'Enhanced mobility networks (transportation)'}, {'title': 'Efficient public transportation'},
+                  {'title': 'Reduction of motorized modes of transportation'}, {'title': 'Urban renovation/rehabilitation'},
+                  {'title': 'Cultural heritage conservation'}, {'title': 'Social empowerment'},
+                  {'title': 'Transperant, participative and decentralized administration'}, {'title': 'Green urban areas'},
+                  {'title': 'Environmental health'}, {'title': 'Enhanced institutional coordination'}, {'title': 'Master city plan'},
+                  {'title': 'Increments in agricultural production'}, {'title': 'Sustainable land use'}, {'title': 'Green building'},
+                  {'title': 'Increment of tourism affluence'}, {'title': 'Vulnerability mitigation'}, {'title': 'Preventation of immigrants/migrants abuse'},];
 });
 
 tabApp.controller('indicatorDropController', function($scope) {
